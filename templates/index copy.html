@@ -1,0 +1,29 @@
+{% include "_header.html" %}
+
+
+    <div id="users">
+
+        <!-- for row in rows|unique(attribute='user_pk') -->
+        {% for row in rows: %}
+            <div class="user">
+                <div>{{ row.user_pk }}</div>
+                <div>{{ row.user_name }}</div>
+                <div class="phones"> 
+                    {% for phone in row.user_phones %}
+                        <input type="text" value="{{ phone }}">               
+                    {% endfor %}
+                </div>
+            </div>            
+        {% endfor %}
+
+
+
+    </div>
+
+
+
+
+
+{% include "_footer.html" %}
+
+

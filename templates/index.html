@@ -1,0 +1,20 @@
+{% include "_header.html" %}
+
+<section>
+    {% for row in rows %}
+    <div>{{ row.user_pk }}</div>
+    <div>{{ row.user_name }}</div>
+    <div>{{ row.user_last_name }}</div>
+    <div>{{ row.user_created_at }}</div>
+    <div>{{ row.user_updated_at }}</div>
+    <div>{{ row.user_deleted_at }}</div>
+    <button onclick="delete_user('{{ row.user_pk }}')">
+        Delete
+    </button>
+    {% endfor %}
+    </section>
+
+
+{% include "_footer.html" %}
+
+

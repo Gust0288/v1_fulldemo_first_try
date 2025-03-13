@@ -1,0 +1,38 @@
+{
+    "version":1,
+    "friends_copy":["2"],
+    "friends":[
+        {
+            "name":"B",            
+            "email":"22@gmail.com"
+        },
+        {
+            "version":2,
+            "name":"C",
+            "last_name":"Cc",
+            "age":10          
+
+        }             
+    ],
+    "navn":"A",
+    "last_name":"Aa",
+    "phones":["111","222"],
+    "address":{
+        "street":"Gbg",
+        "number":"19"
+    },
+    "price":15065,
+    "pets":[
+        {
+            "type":"cat",
+            "name":"Tobi",
+            "age":7
+        },
+        {
+            "type":"cat",
+            "name":"Molli",
+            "age":5
+        }        
+
+    ]
+}

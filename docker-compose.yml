@@ -1,0 +1,50 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fulldemo_flask
+    depends_on:
+      - mysql
+      - mongodb
+    ports:
+      - 80:80
+    volumes:
+      - .:/app
+ 
+  mysql:
+    image: mysql:latest
+    container_name: fulldemo_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: company
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - 3306:3306
+ 
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: fulldemo_phpmyadmin
+    depends_on:
+      - mysql
+    environment:
+      PMA_HOST: mysql
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - 8080:80
+
+  mongodb:  # Add the MongoDB service
+    image: mongo:latest  # Use the official MongoDB image
+    container_name: fulldemo_mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password  # Set a root password for MongoDB
+      MONGO_INITDB_DATABASE: company  # Optionally, create a database during initialization
+    volumes:
+      - mongodb_data:/data/db  # Persist MongoDB data in a named volume
+    ports:
+      - 27017:27017  # Expose MongoDB on port 27017
+volumes:
+  mysql_data:
+  mongodb_data:  # Define a volume for MongoDB
